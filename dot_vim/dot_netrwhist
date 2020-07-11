@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/raunak/.vim_runtime/temp_dirs'
+let g:netrw_dirhist_6='/home/raunak/.vim_runtime/temp_dirs/undodir'
+let g:netrw_dirhist_5='/home/raunak/.vim_runtime/temp_dirs'
+let g:netrw_dirhist_1='/home/raunak/.config/vim'
+let g:netrw_dirhist_0='/home/raunak/.cache/vim/undo'
+let g:netrw_dirhist_9='/home/raunak/.cache/vim'
+let g:netrw_dirhist_8='/home/raunak/.cache/vim/undo'
