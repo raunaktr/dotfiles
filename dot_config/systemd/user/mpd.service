@@ -1,0 +1,10 @@
+[Unit]
+Description=Music Player Daemon
+
+[Service]
+ExecStart=/usr/bin/mpd --no-daemon /home/$USER/.config/mpd/mpd.conf
+ExecStop=/usr/bin/mpd --kill
+PIDFile=/home/$USER/.config/mpd/mpd.pid
+
+[Install]
+WantedBy=default.target
