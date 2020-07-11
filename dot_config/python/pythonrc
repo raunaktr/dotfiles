@@ -1,0 +1,44 @@
+# $PYTHONSTARTUP - Python interactive startup script
+# vim: ft=python:ts=4:sw=4:et
+
+import math
+import os
+import re
+import subprocess
+import sys
+from pprint import pprint as pp
+
+def _init_():
+    import atexit
+    import readline
+    import rlcompleter
+
+    if hasattr(sys, "__interactivehook__"):
+        # As of v3.4, sys.__interactivehook__ in site.py already performs the
+        # same except with ~/.python_history as the path, and only if history
+        # is still empty after our read_history_file call.
+        #
+        # This means that the 1st startup will create *both* histfiles on exit,
+        # although the 2nd startup will use ours. Remove the site.py hook to
+        # avoid this.
+        del sys.__interactivehook__
+
+    readline.read_init_file()
+    readline.parse_and_bind("tab: complete")
+    hist_file = os.path.expanduser("~/.cache/python_history")
+    if os.path.exists(hist_file):
+        readline.read_history_file(hist_file)
+    atexit.register(lambda: readline.write_history_file(hist_file))
+
+    fmt = lambda s: "\001%s\002" % s
+    csi = lambda s: fmt("\033[%sm" % s)
+
+    color = "38;5;169" if sys.version_info[0] >= 3 else "38;5;67"
+    name = "py%d.%d " % sys.version_info[0:2]
+
+    sys.ps1 = csi("") + csi(color) + name + csi("1") + ">>>" + csi("") + " "
+    sys.ps2 = " " * len(name) + csi(";1;30") + "..." + csi("") + " "
+
+_init_()
+
+del _init_
