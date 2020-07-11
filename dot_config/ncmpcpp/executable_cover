@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ $TERM = 'xterm-kitty' ]; then
+  file=$(mpc --format ~/Music/%file% current)
+  printf '\e]20;;100x100+1000+1000\a'
+  ffmpeg -y -i "$file" /tmp/cover.png -loglevel quiet
+  printf '\e]20;%s;100x50+100+50:op=keep-aspect\a' /tmp/cover.png
+  notify-send "Now Playing ♫" -t 1000 "$(mpc current)"
+fi
