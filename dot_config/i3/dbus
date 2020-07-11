@@ -1,0 +1,552 @@
+COMPTON(1)                               LOCAL USER COMMANDS                               COMPTON(1)
+
+NNAAMMEE
+       compton - a compositor for X11
+
+SSYYNNOOPPSSIISS
+       ccoommppttoonn [_O_P_T_I_O_N_S]
+
+WWAARRNNIINNGG
+       This man page may be less up-to-date than the usage text in compton (compton -h).
+
+DDEESSCCRRIIPPTTIIOONN
+       compton is a compositor based on Dana Jansens' version of xcompmgr (which itself was written
+       by Keith Packard). It includes some improvements over the original xcompmgr, like window frame
+       opacity and inactive window transparency.
+
+OOPPTTIIOONNSS
+       --hh, ----hheellpp
+           Get the usage text embedded in program code, which may be more up-to-date than this man
+           page.
+
+       --dd _D_I_S_P_L_A_Y
+           Display to be managed.
+
+       --rr, ----sshhaaddooww--rraaddiiuuss=_R_A_D_I_U_S
+           The blur radius for shadows, in pixels. (defaults to 12)
+
+       --oo, ----sshhaaddooww--ooppaacciittyy=_O_P_A_C_I_T_Y
+           The opacity of shadows. (0.0 - 1.0, defaults to 0.75)
+
+       --ll, ----sshhaaddooww--ooffffsseett--xx=_O_F_F_S_E_T
+           The left offset for shadows, in pixels. (defaults to -15)
+
+       --tt, ----sshhaaddooww--ooffffsseett--yy=_O_F_F_S_E_T
+           The top offset for shadows, in pixels. (defaults to -15)
+
+       --II, ----ffaaddee--iinn--sstteepp=_O_P_A_C_I_T_Y___S_T_E_P
+           Opacity change between steps while fading in. (0.01 - 1.0, defaults to 0.028)
+
+       --OO, ----ffaaddee--oouutt--sstteepp=_O_P_A_C_I_T_Y___S_T_E_P
+           Opacity change between steps while fading out. (0.01 - 1.0, defaults to 0.03)
+
+       --DD, ----ffaaddee--ddeellttaa=_M_I_L_L_I_S_E_C_O_N_D_S
+           The time between steps in fade step, in milliseconds. (> 0, defaults to 10)
+
+       --mm, ----mmeennuu--ooppaacciittyy=_O_P_A_C_I_T_Y
+           Default opacity for dropdown menus and popup menus. (0.0 - 1.0, defaults to 1.0)
+
+       --cc, ----sshhaaddooww
+           Enabled client-side shadows on windows. Note desktop windows (windows with
+           ___N_E_T___W_M___W_I_N_D_O_W___T_Y_P_E___D_E_S_K_T_O_P) never get shadow.
+
+       --CC, ----nnoo--ddoocckk--sshhaaddooww
+           Avoid drawing shadows on dock/panel windows.
+
+       --zz, ----cclleeaarr--sshhaaddooww
+           Zero the part of the shadow’s mask behind the window. Note this may not work properly on
+           ARGB windows with fully transparent areas.
+
+       --ff, ----ffaaddiinngg
+           Fade windows in/out when opening/closing and when opacity changes, unless
+           ----nnoo--ffaaddiinngg--ooppeenncclloossee is used.
+
+       --FF
+           Equals to --ff. Deprecated.
+
+       --ii, ----iinnaaccttiivvee--ooppaacciittyy=_O_P_A_C_I_T_Y
+           Opacity of inactive windows. (0.1 - 1.0, disabled by default)
+
+       --ee, ----ffrraammee--ooppaacciittyy=_O_P_A_C_I_T_Y
+           Opacity of window titlebars and borders. (0.1 - 1.0, disabled by default)
+
+       --GG, ----nnoo--ddnndd--sshhaaddooww
+           Don’t draw shadows on drag-and-drop windows.
+
+       --bb, ----ddaaeemmoonn
+           Daemonize process. Fork to background after initialization. Causes issues with certain
+           (badly-written) drivers.
+
+       --SS
+           Enable synchronous X operation (for debugging).
+
+       ----sshhooww--aallll--xxeerrrroorrss
+           Show all X errors (for debugging).
+
+       ----ccoonnffiigg _P_A_T_H
+           Look for configuration file at the path. See CCOONNFFIIGGUURRAATTIIOONN FFIILLEESS section below for where
+           compton looks for a configuration file by default. Use /dev/null to avoid loading
+           configuration file.
+
+       ----wwrriittee--ppiidd--ppaatthh _P_A_T_H
+           Write process ID to a file.
+
+       ----sshhaaddooww--rreedd _V_A_L_U_E
+           Red color value of shadow (0.0 - 1.0, defaults to 0).
+
+       ----sshhaaddooww--ggrreeeenn _V_A_L_U_E
+           Green color value of shadow (0.0 - 1.0, defaults to 0).
+
+       ----sshhaaddooww--bblluuee _V_A_L_U_E
+           Blue color value of shadow (0.0 - 1.0, defaults to 0).
+
+       ----iinnaaccttiivvee--ooppaacciittyy--oovveerrrriiddee
+           Let inactive opacity set by --ii overrides the windows' ___N_E_T___W_M___O_P_A_C_I_T_Y values.
+
+       ----aaccttiivvee--ooppaacciittyy _O_P_A_C_I_T_Y
+           Default opacity for active windows. (0.0 - 1.0)
+
+       ----iinnaaccttiivvee--ddiimm _V_A_L_U_E
+           Dim inactive windows. (0.0 - 1.0, defaults to 0.0)
+
+       ----mmaarrkk--wwmmwwiinn--ffooccuusseedd
+           Try to detect WM windows (a non-override-redirect window with no child that has WM_STATE)
+           and mark them as active.
+
+       ----mmaarrkk--oovvrreeddiirr--ffooccuusseedd
+           Mark override-redirect windows that doesn’t have a child window with WM_STATE focused.
+
+       ----nnoo--ffaaddiinngg--ooppeenncclloossee
+           Do not fade on window open/close.
+
+       ----nnoo--ffaaddiinngg--ddeessttrrooyyeedd--aarrggbb
+           Do not fade destroyed ARGB windows with WM frame. Workaround of bugs in Openbox, Fluxbox,
+           etc.
+
+       ----sshhaaddooww--iiggnnoorree--sshhaappeedd
+           Do not paint shadows on shaped windows. Note shaped windows here means windows setting its
+           shape through X Shape extension. Those using ARGB background is beyond our control.
+           Deprecated, use --shadow-exclude 'bounding_shaped' or --shadow-exclude 'bounding_shaped &&
+           !rounded_corners' instead.
+
+       ----ddeetteecctt--rroouunnddeedd--ccoorrnneerrss
+           Try to detect windows with rounded corners and don’t consider them shaped windows. The
+           accuracy is not very high, unfortunately.
+
+       ----ddeetteecctt--cclliieenntt--ooppaacciittyy
+           Detect ___N_E_T___W_M___O_P_A_C_I_T_Y on client windows, useful for window managers not passing
+           ___N_E_T___W_M___O_P_A_C_I_T_Y of client windows to frame windows.
+
+       ----rreeffrreesshh--rraattee _R_E_F_R_E_S_H___R_A_T_E
+           Specify refresh rate of the screen. If not specified or 0, compton will try detecting this
+           with X RandR extension.
+
+       ----vvssyynncc _V_S_Y_N_C___M_E_T_H_O_D
+           Set VSync method. VSync methods currently available:
+
+           •   _n_o_n_e: No VSync
+
+           •   _d_r_m: VSync with _D_R_M___I_O_C_T_L___W_A_I_T___V_B_L_A_N_K. May only work on some (DRI-based) drivers.
+
+           •   _o_p_e_n_g_l: Try to VSync with _S_G_I___v_i_d_e_o___s_y_n_c OpenGL extension. Only work on some drivers.
+
+           •   _o_p_e_n_g_l_-_o_m_l: Try to VSync with _O_M_L___s_y_n_c___c_o_n_t_r_o_l OpenGL extension. Only work on some
+               drivers.
+
+           •   _o_p_e_n_g_l_-_s_w_c: Try to VSync with _S_G_I___s_w_a_p___c_o_n_t_r_o_l OpenGL extension. Only work on some
+               drivers. Works only with GLX backend. Known to be most effective on many drivers. Does
+               not guarantee to control paint timing.
+
+           •   _o_p_e_n_g_l_-_m_s_w_c: Try to VSync with _M_E_S_A___s_w_a_p___c_o_n_t_r_o_l OpenGL extension. Basically the same
+               as _o_p_e_n_g_l_-_s_w_c above, except the extension we use.
+
+           (Note some VSync methods may not be enabled at compile time.)
+
+       ----vvssyynncc--aaggggrreessssiivvee
+           Attempt to send painting request before VBlank and do XFlush() during VBlank. Reported to
+           work pretty terribly. This switch may be lifted out at any moment.
+
+       ----aallpphhaa--sstteepp _V_A_L_U_E
+           X Render backend: Step for pregenerating alpha pictures. (0.01 - 1.0, defaults to 0.03)
+
+       ----ddbbee
+           Enable DBE painting mode, intended to use with VSync to (hopefully) eliminate tearing.
+           Reported to have no effect, though.
+
+       ----ppaaiinntt--oonn--oovveerrllaayy
+           Painting on X Composite overlay window instead of on root window.
+
+       ----ssww--ooppttii
+           Limit compton to repaint at most once every 1 / _r_e_f_r_e_s_h___r_a_t_e second to boost performance.
+           This should not be used with ----vvssyynncc drm/opengl/opengl-oml as they essentially does
+           ----ssww--ooppttii's job already, unless you wish to specify a lower refresh rate than the actual
+           value.
+
+       ----uussee--eewwmmhh--aaccttiivvee--wwiinn
+           Use EWMH ___N_E_T___A_C_T_I_V_E___W_I_N_D_O_W to determine currently focused window, rather than listening
+           to _F_o_c_u_s_I_n/_F_o_c_u_s_O_u_t event. Might have more accuracy, provided that the WM supports it.
+
+       ----rreessppeecctt--pprroopp--sshhaaddooww
+           Respect ___C_O_M_P_T_O_N___S_H_A_D_O_W. This a prototype-level feature, which you must not rely on.
+
+       ----uunnrreeddiirr--iiff--ppoossssiibbllee
+           Unredirect all windows if a full-screen opaque window is detected, to maximize performance
+           for full-screen windows. Known to cause flickering when redirecting/unredirecting windows.
+           ----ppaaiinntt--oonn--oovveerrllaayy may make the flickering less obvious.
+
+       ----uunnrreeddiirr--iiff--ppoossssiibbllee--ddeellaayy _M_I_L_L_I_S_E_C_O_N_D_S
+           Delay before unredirecting the window, in milliseconds. Defaults to 0.
+
+       ----uunnrreeddiirr--iiff--ppoossssiibbllee--eexxcclluuddee _C_O_N_D_I_T_I_O_N
+           Conditions of windows that shouldn’t be considered full-screen for unredirecting screen.
+
+       ----sshhaaddooww--eexxcclluuddee _C_O_N_D_I_T_I_O_N
+           Specify a list of conditions of windows that should have no shadow.
+
+       ----ffaaddee--eexxcclluuddee _C_O_N_D_I_T_I_O_N
+           Specify a list of conditions of windows that should not be faded.
+
+       ----ffooccuuss--eexxcclluuddee _C_O_N_D_I_T_I_O_N
+           Specify a list of conditions of windows that should always be considered focused.
+
+       ----iinnaaccttiivvee--ddiimm--ffiixxeedd
+           Use fixed inactive dim value, instead of adjusting according to window opacity.
+
+       ----ddeetteecctt--ttrraannssiieenntt
+           Use _W_M___T_R_A_N_S_I_E_N_T___F_O_R to group windows, and consider windows in the same group focused at
+           the same time.
+
+       ----ddeetteecctt--cclliieenntt--lleeaaddeerr
+           Use _W_M___C_L_I_E_N_T___L_E_A_D_E_R to group windows, and consider windows in the same group focused at
+           the same time.  _W_M___T_R_A_N_S_I_E_N_T___F_O_R has higher priority if ----ddeetteecctt--ttrraannssiieenntt is enabled,
+           too.
+
+       ----bblluurr--bbaacckkggrroouunndd
+           Blur background of semi-transparent / ARGB windows. Bad in performance, with
+           driver-dependent behavior. The name of the switch may change without prior notifications.
+
+       ----bblluurr--bbaacckkggrroouunndd--ffrraammee
+           Blur background of windows when the window frame is not opaque. Implies ----bblluurr--bbaacckkggrroouunndd.
+           Bad in performance, with driver-dependent behavior. The name may change.
+
+       ----bblluurr--bbaacckkggrroouunndd--ffiixxeedd
+           Use fixed blur strength rather than adjusting according to window opacity.
+
+       ----bblluurr--mmeetthhoodd _A_L_G_O_R_I_T_H_M
+           Specify the algorithm for background blur. It is either one of: convolution (default),
+           kawase.
+
+           Note: kawase only works with the glx backend.
+
+       ----bblluurr--ssttrreennggtthh _L_E_V_E_L
+           Only valid for ----bblluurr--mmeetthhoodd kkaawwaassee! The strength of the kawase blur as an integer between
+           1 and 20. Defaults to 5.
+
+       ----bblluurr--kkeerrnn _M_A_T_R_I_X
+           Only valid for ----bblluurr--mmeetthhoodd ccoonnvvoolluuttiioonn! Specify the blur convolution kernel, with the
+           following format:
+
+               WIDTH,HEIGHT,ELE1,ELE2,ELE3,ELE4,ELE5...
+
+           The element in the center must not be included, it will be forever 1.0 or changing based
+           on opacity, depending on whether you have --blur-background-fixed. Yet the automatic
+           adjustment of blur factor may not work well with a custom blur kernel.
+
+           A 7x7 Gaussian blur kernel (sigma = 0.84089642) looks like:
+
+               --blur-kern '7,7,0.000003,0.000102,0.000849,0.001723,0.000849,0.000102,0.000003,0.000102,0.003494,0.029143,0.059106,0.029143,0.003494,0.000102,0.000849,0.029143,0.243117,0.493069,0.243117,0.029143,0.000849,0.001723,0.059106,0.493069,0.493069,0.059106,0.001723,0.000849,0.029143,0.243117,0.493069,0.243117,0.029143,0.000849,0.000102,0.003494,0.029143,0.059106,0.029143,0.003494,0.000102,0.000003,0.000102,0.000849,0.001723,0.000849,0.000102,0.000003'
+
+           May also be one of the predefined kernels: 3x3box (default), 5x5box, 7x7box, 3x3gaussian,
+           5x5gaussian, 7x7gaussian, 9x9gaussian, 11x11gaussian. All Gaussian kernels are generated
+           with sigma = 0.84089642 . You may use the accompanied compton-convgen.py to generate blur
+           kernels.
+
+       ----bblluurr--bbaacckkggrroouunndd--eexxcclluuddee _C_O_N_D_I_T_I_O_N
+           Exclude conditions for background blur.
+
+       ----rreessiizzee--ddaammaaggee _I_N_T_E_G_E_R
+           Resize damaged region by a specific number of pixels. A positive value enlarges it while a
+           negative one shrinks it. If the value is positive, those additional pixels will not be
+           actually painted to screen, only used in blur calculation, and such. (Due to technical
+           limitations, with ----ddbbee or ----ggllxx--sswwaapp--mmeetthhoodd, those pixels will still be incorrectly
+           painted to screen.) Primarily used to fix the line corruption issues of blur, in which
+           case you should use the blur radius value here (e.g. with a 3x3 kernel, you should use
+           ----rreessiizzee--ddaammaaggee 1, with a 5x5 one you use ----rreessiizzee--ddaammaaggee 2, and so on). May or may not
+           work with --glx-no-stencil. Shrinking doesn’t function correctly.
+
+       ----iinnvveerrtt--ccoolloorr--iinncclluuddee _C_O_N_D_I_T_I_O_N
+           Specify a list of conditions of windows that should be painted with inverted color.
+           Resource-hogging, and is not well tested.
+
+       ----ooppaacciittyy--rruullee _O_P_A_C_I_T_Y:'CONDITION'
+           Specify a list of opacity rules, in the format PERCENT:PATTERN, like 50:name *= "Firefox".
+           compton-trans is recommended over this. Note we do not distinguish 100% and unset, and we
+           don’t make any guarantee about possible conflicts with other programs that set
+           ___N_E_T___W_M___W_I_N_D_O_W___O_P_A_C_I_T_Y on frame or client windows.
+
+       ----sshhaaddooww--eexxcclluuddee--rreegg _G_E_O_M_E_T_R_Y
+           Specify a X geometry that describes the region in which shadow should not be painted in,
+           such as a dock window region. Use --shadow-exclude-reg x10+0-0, for example, if the 10
+           pixels on the bottom of the screen should not have shadows painted on.
+
+       ----xxiinneerraammaa--sshhaaddooww--ccrroopp
+           Crop shadow of a window fully on a particular Xinerama screen to the screen.
+
+       ----bbaacckkeenndd _B_A_C_K_E_N_D
+           Specify the backend to use: xrender, glx, or xr_glx_hybrid.  xrender is the default one.
+
+           •   xrender backend performs all rendering operations with X Render extension. It is what
+               xcompmgr uses, and is generally a safe fallback when you encounter rendering artifacts
+               or instability.
+
+           •   glx (OpenGL) backend performs all rendering operations with OpenGL. It is more
+               friendly to some VSync methods, and has significantly superior performance on color
+               inversion (--invert-color-include) or blur (--blur-background). It requires proper
+               OpenGL 2.0 support from your driver and hardware. You may wish to look at the GLX
+               performance optimization options below.  --xrender-sync and --xrender-sync-fence might
+               be needed on some systems to avoid delay in changes of screen contents.
+
+           •   xr_glx_hybrid backend renders the updated screen contents with X Render and presents
+               it on the screen with GLX. It attempts to address the rendering issues some users
+               encountered with GLX backend and enables the better VSync of GLX backends.
+               --vsync-use-glfinish might fix some rendering issues with this backend.
+
+       ----ggllxx--nnoo--sstteenncciill
+           GLX backend: Avoid using stencil buffer, useful if you don’t have a stencil buffer. Might
+           cause incorrect opacity when rendering transparent content (but never practically
+           happened) and may not work with ----bblluurr--bbaacckkggrroouunndd. My tests show a 15% performance boost.
+           Recommended.
+
+       ----ggllxx--ccooppyy--ffrroomm--ffrroonntt
+           GLX backend: Copy unmodified regions from front buffer instead of redrawing them all. My
+           tests with nvidia-drivers show a 10% decrease in performance when the whole screen is
+           modified, but a 20% increase when only 1/4 is. My tests on nouveau show terrible slowdown.
+           Useful with --glx-swap-method, as well.
+
+       ----ggllxx--uussee--ccooppyyssuubbbbuuffffeerrmmeessaa
+           GLX backend: Use _M_E_S_A___c_o_p_y___s_u_b___b_u_f_f_e_r to do partial screen update. My tests on nouveau
+           shows a 200% performance boost when only 1/4 of the screen is updated. May break VSync and
+           is not available on some drivers. Overrides ----ggllxx--ccooppyy--ffrroomm--ffrroonntt.
+
+       ----ggllxx--nnoo--rreebbiinndd--ppiixxmmaapp
+           GLX backend: Avoid rebinding pixmap on window damage. Probably could improve performance
+           on rapid window content changes, but is known to break things on some drivers (LLVMpipe,
+           xf86-video-intel, etc.). Recommended if it works.
+
+       ----ggllxx--sswwaapp--mmeetthhoodd undefined/exchange/copy/3/4/5/6/buffer-age
+           GLX backend: GLX buffer swap method we assume. Could be undefined (0), copy (1), exchange
+           (2), 3-6, or buffer-age (-1).  undefined is the slowest and the safest, and the default
+           value.  copy is fastest, but may fail on some drivers, 2-6 are gradually slower but safer
+           (6 is still faster than 0). Usually, double buffer means 2, triple buffer means 3.
+           buffer-age means auto-detect using _G_L_X___E_X_T___b_u_f_f_e_r___a_g_e, supported by some drivers. Useless
+           with ----ggllxx--uussee--ccooppyyssuubbbbuuffffeerrmmeessaa. Partially breaks --resize-damage. Defaults to undefined.
+
+       ----ggllxx--uussee--ggppuusshhaaddeerr44
+           GLX backend: Use _G_L___E_X_T___g_p_u___s_h_a_d_e_r_4 for some optimization on blur GLSL code. My tests on
+           GTX 670 show no noticeable effect.
+
+       ----xxrreennddeerr--ssyynncc
+           Attempt to synchronize client applications' draw calls with XSync(), used on GLX backend
+           to ensure up-to-date window content is painted.
+
+       ----xxrreennddeerr--ssyynncc--ffeennccee
+           Additionally use X Sync fence to sync clients' draw calls. Needed on nvidia-drivers with
+           GLX backend for some users. May be disabled at compile time with NO_XSYNC=1.
+
+       ----ggllxx--ffsshhaaddeerr--wwiinn _S_H_A_D_E_R
+           GLX backend: Use specified GLSL fragment shader for rendering window contents. See
+           compton-default-fshader-win.glsl and compton-fake-transparency-fshader-win.glsl in the
+           source tree for examples.
+
+       ----ffoorrccee--wwiinn--bblleenndd
+           Force all windows to be painted with blending. Useful if you have a ----ggllxx--ffsshhaaddeerr--wwiinn that
+           could turn opaque pixels transparent.
+
+       ----ddbbuuss
+           Enable remote control via D-Bus. See the DD--BBUUSS AAPPII section below for more details.
+
+       ----bbeenncchhmmaarrkk _C_Y_C_L_E_S
+           Benchmark mode. Repeatedly paint until reaching the specified cycles.
+
+       ----bbeenncchhmmaarrkk--wwiidd _W_I_N_D_O_W___I_D
+           Specify window ID to repaint in benchmark mode. If omitted or is 0, the whole screen is
+           repainted.
+
+FFOORRMMAATT OOFF CCOONNDDIITTIIOONNSS
+       Some options accept a condition string to match certain windows. A condition string is formed
+       by one or more conditions, joined by logical operators.
+
+       A condition with "exists" operator looks like this:
+
+           <NEGATION> <TARGET> <CLIENT/FRAME> [<INDEX>] : <FORMAT> <TYPE>
+
+       With equals operator it looks like:
+
+           <NEGATION> <TARGET> <CLIENT/FRAME> [<INDEX>] : <FORMAT> <TYPE> <NEGATION> <OP QUALIFIER> <MATCH TYPE> = <PATTERN>
+
+       With greater-than/less-than operators it looks like:
+
+           <NEGATION> <TARGET> <CLIENT/FRAME> [<INDEX>] : <FORMAT> <TYPE> <NEGATION> <OPERATOR> <PATTERN>
+
+       _N_E_G_A_T_I_O_N (optional) is one or more exclamation marks;
+
+       _T_A_R_G_E_T is either a predefined target name, or the name of a window property to match.
+       Supported predefined targets are id, x, y, x2 (x + widthb), y2, width, height, widthb (width +
+       2 * border_width), heightb, override_redirect, argb (whether the window has an ARGB visual),
+       focused, wmwin (whether the window looks like a WM window, i.e. has no child window with
+       WM_STATE and is not override-redirected), bounding_shaped, rounded_corners (requires
+       ----ddeetteecctt--rroouunnddeedd--ccoorrnneerrss), client (ID of client window), window_type (window type in string),
+       leader (ID of window leader), name, class_g (= WM_CLASS[1]), class_i (= WM_CLASS[0]), and
+       role.
+
+       _C_L_I_E_N_T_/_F_R_A_M_E is a single @ if the window attribute should be be looked up on client window,
+       nothing if on frame window;
+
+       _I_N_D_E_X (optional) is the index number of the property to look up. For example, [2] means look
+       at the third value in the property. Do not specify it for predefined targets.
+
+       _F_O_R_M_A_T (optional) specifies the format of the property, 8, 16, or 32. On absence we use format
+       X reports. Do not specify it for predefined or string targets.
+
+       _T_Y_P_E is a single character representing the type of the property to match for: c for _C_A_R_D_I_N_A_L,
+       a for _A_T_O_M, w for _W_I_N_D_O_W, d for _D_R_A_W_A_B_L_E, s for _S_T_R_I_N_G (and any other string types, such as
+       _U_T_F_8___S_T_R_I_N_G). Do not specify it for predefined targets.
+
+       _O_P _Q_U_A_L_I_F_I_E_R (optional), applicable only for equals operator, could be ? (ignore-case).
+
+       _M_A_T_C_H _T_Y_P_E (optional), applicable only for equals operator, could be nothing (exact match), *
+       (match anywhere), ^ (match from start), % (wildcard), or ~ (PCRE regular expression).
+
+       _O_P_E_R_A_T_O_R is one of = (equals), <, >, <=, =>, or nothing (exists). Exists operator checks
+       whether a property exists on a window (but for predefined targets, exists means != 0 then).
+
+       _P_A_T_T_E_R_N is either an integer or a string enclosed by single or double quotes. Python-3-style
+       escape sequences and raw string are supported in the string format.
+
+       Supported logical operators are && (and) and || (or). && has higher precedence than ||,
+       left-to-right associativity. Use parentheses to change precedence.
+
+       Examples:
+
+           # If the window is focused
+           focused
+           focused = 1
+           # If the window is not override-redirected
+           !override_redirect
+           override_redirect = false
+           override_redirect != true
+           override_redirect != 1
+           # If the window is a menu
+           window_type *= "menu"
+           _NET_WM_WINDOW_TYPE@:a *= "MENU"
+           # If the window name contains "Firefox", ignore case
+           name *?= "Firefox"
+           _NET_WM_NAME@:s *?= "Firefox"
+           # If the window name ends with "Firefox"
+           name %= "*Firefox"
+           name ~= "Firefox$"
+           # If the window has a property _COMPTON_SHADOW with value 0, type CARDINAL,
+           # format 32, value 0, on its frame window
+           _COMPTON_SHADOW:32c = 0
+           # If the third value of _NET_FRAME_EXTENTS is less than 20, or there's no
+           # _NET_FRAME_EXTENTS property on client window
+           _NET_FRAME_EXTENTS@[2]:32c < 20 || !_NET_FRAME_EXTENTS@:32c
+           # The pattern here will be parsed as "dd4"
+           name = "\x64\x64\o64"
+           # The pattern here will be parsed as "\x64\x64\x64"
+           name = r"\x64\x64\o64"
+
+LLEEGGAACCYY FFOORRMMAATT OOFF CCOONNDDIITTIIOONNSS
+       This is the old condition format we once used. Support of this format might be removed in the
+       future.
+
+           condition = TARGET:TYPE[FLAGS]:PATTERN
+
+       _T_A_R_G_E_T is one of "n" (window name), "i" (window class instance), "g" (window general class),
+       and "r" (window role).
+
+       _T_Y_P_E is one of "e" (exact match), "a" (match anywhere), "s" (match from start), "w"
+       (wildcard), and "p" (PCRE regular expressions, if compiled with the support).
+
+       _F_L_A_G_S could be a series of flags. Currently the only defined flag is "i" (ignore case).
+
+       _P_A_T_T_E_R_N is the actual pattern string.
+
+CCOONNFFIIGGUURRAATTIIOONN FFIILLEESS
+       compton could read from a configuration file if libconfig support is compiled in. If ----ccoonnffiigg
+       is not used, compton will seek for a configuration file in $XDG_CONFIG_HOME/compton.conf
+       (~/.config/compton.conf, usually), then ~/.compton.conf, then compton.conf under
+       $XDG_CONFIG_DIRS (often /etc/xdg/compton.conf).
+
+       compton uses general libconfig configuration file format. A sample configuration file is
+       available as compton.sample.conf in the source tree. Most commandline switches each could be
+       replaced with an option in configuration file, thus documented above. Window-type-specific
+       settings are exposed only in configuration file and has the following format:
+
+           wintypes:
+           {
+             WINDOW_TYPE = { fade = BOOL; shadow = BOOL; opacity = FLOAT; focus = BOOL; };
+           };
+
+       _W_I_N_D_O_W___T_Y_P_E is one of the 15 window types defined in EWMH standard: "unknown", "desktop",
+       "dock", "toolbar", "menu", "utility", "splash", "dialog", "normal", "dropdown_menu",
+       "popup_menu", "tooltip", "notify", "combo", and "dnd". "fade" and "shadow" controls
+       window-type-specific shadow and fade settings. "opacity" controls default opacity of the
+       window type. "focus" controls whether the window of this type is to be always considered
+       focused. (By default, all window types except "normal" and "dialog" has this on.)
+
+SSIIGGNNAALLSS
+       •   compton reinitializes itself upon receiving SIGUSR1.
+
+DD--BBUUSS AAPPII
+       It’s possible to control compton via D-Bus messages, by running compton with ----ddbbuuss and send
+       messages to com.github.chjj.compton.<DISPLAY>. <DISPLAY> is the display used by compton, with
+       all non-alphanumeric characters transformed to underscores. For DISPLAY=:0.0 you should use
+       com.github.chjj.compton._0_0, for example.
+
+       The D-Bus methods and signals are not yet stable, thus undocumented right now.
+
+EEXXAAMMPPLLEESS
+       •   Disable configuration file parsing:
+
+               $ compton --config /dev/null
+
+       •   Run compton with client-side shadow and fading, disable shadow on dock windows and
+           drag-and-drop windows:
+
+               $ compton -cCGf
+
+       •   Same thing as above, plus making inactive windows 80% transparent, making frame 80%
+           transparent, don’t fade on window open/close, enable software optimization, and fork to
+           background:
+
+               $ compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
+
+       •   Draw white shadows:
+
+               $ compton -c --shadow-red 1 --shadow-green 1 --shadow-blue 1
+
+       •   Avoid drawing shadows on wbar window:
+
+               $ compton -c --shadow-exclude 'class_g = "wbar"'
+
+       •   Enable OpenGL SGI_swap_control VSync with GLX backend:
+
+               $ compton --backend glx --vsync opengl-swc
+
+BBUUGGSS
+       Please report any you find to https://github.com/chjj/compton .
+
+AAUUTTHHOORRSS
+       xcompmgr, originally written by Keith Packard, with contributions from Matthew Allum, Eric
+       Anholt, Dan Doel, Thomas Luebking, Matthew Hawn, Ely Levy, Phil Blundell, and Carl Worth.
+       Compton by Christopher Jeffrey, based on Dana Jansens' original work, with contributions from
+       Richard Grenville.
+
+RREESSOOUURRCCEESS
+       Homepage: https://github.com/chjj/compton
+
+SSEEEE AALLSSOO
+       xxccoommppmmggrr(1), ccoommppttoonn--ttrraannss(1)
+
+compton nightly-20141124                      04/09/2020                                   COMPTON(1)

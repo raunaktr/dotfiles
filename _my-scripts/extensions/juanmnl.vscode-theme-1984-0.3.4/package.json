@@ -1,0 +1,62 @@
+{
+	"name": "vscode-theme-1984",
+	"displayName": "1984",
+	"description": "🎶I'm gonna show you where it's dark, but have no fear 🎶",
+	"version": "0.3.4",
+	"publisher": "juanmnl",
+	"engines": {
+		"vscode": "^1.16.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/juanmnl/vs-1984"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "1984 - Orwellian",
+				"uiTheme": "vs-dark",
+				"path": "./themes/1984-orwell-color-theme.json"
+			},
+			{
+				"label": "1984",
+				"uiTheme": "vs-dark",
+				"path": "./themes/1984-color-theme.json"
+			},
+			{
+				"label": "1984 - Unbolded",
+				"uiTheme": "vs-dark",
+				"path": "./themes/1984-unbolded-color-theme.json"
+			},
+			{
+				"label": "1984 - Fancy",
+				"uiTheme": "vs-dark",
+				"path": "./themes/1984-fancy-color-theme.json"
+			},
+			{
+				"label": "1984 - Cyberpunk",
+				"uiTheme": "vs-dark",
+				"path": "./themes/1984-cyberpunk-color-theme.json"
+			},
+			{
+				"label": "1984 - Light",
+				"uiTheme": "vs",
+				"path": "./themes/1984-light-color-theme.json"
+			}
+		]
+	},
+	"galleryBanner": {
+		"color": "#0d0f31",
+		"theme": "dark"
+	},
+	"icon": "icon.png",
+	"license": "MIT",
+	"__metadata": {
+		"id": "0f087222-4e48-423c-be9b-5cae196de4bc",
+		"publisherId": "3952d6fa-843e-412c-af55-3929cef8b933",
+		"publisherDisplayName": "juanmnl"
+	}
+}
