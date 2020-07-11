@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Quick shortcuts to some dirs
+alias dls="cd ~/Downloads"
+alias docs="cd ~/Documents"
+alias prjs="cd ~/Projects"
+alias pics="cd ~/Pictures"
+alias conf="cd ~/.config"
+alias vids="cd ~/Videos"
+alias dots="cd ~/private_dotfiles"
+alias bin="cd ~/bin"
+alias lbin="cd $HOME/.local/bin"
+alias tmp="cd /tmp"
+alias shots="cd ~/Pictures/Screenshots"
+alias notes="cd ~/Documents/Notes"
+alias ..="cd .."
+
+# Quickly edit some files
+alias zshrc="vim $HOME/.zshrc && source $HOME/.zshrc"
+alias aliases="vim ~/.config/aliases && source ~/.config/aliases"
+alias i3config="vim ~/.config/i3/config"
+alias tmux="TERM=kitty tmux -f '$XDG_CONFIG_HOME'/tmux/tmux.conf"
+alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
+alias gpg2="gpg2 --homedir $XDG_DATA_HOME/gnupg"
+
+
+# Some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Basically, lets me know what just happened
+# --interactive     prompt before overwrite
+# --verbose         explain what is being done
+alias cp="cp --interactive --verbose"
+alias mv="mv --interactive --verbose"
+alias rm="rm --verbose"
+

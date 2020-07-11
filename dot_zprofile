@@ -1,0 +1,74 @@
+
+
+# Default programs:
+export EDITOR="vim"
+export TERMINAL="kitty"
+export BROWSER="google-chrome-stable"
+export READER="google-chrome-stable"
+export FILE="nautilus"
+
+# Clean up the $HOME directory
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+#export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export CURLOPT_NETRC_FILE="$XDG_CONFIG_HOME"/netrc
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export RANDFILE=$XDG_CONFIG_HOME/openssl/rnd
+export GOPATH="$XDG_DATA_HOME"/go
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
+
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export PYTHONHISTORY="$XDG_CACHE_HOME"/python/history
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+
+export ZSH_CACHE_DIR="$XDG_DATA_HOME"/zsh
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
+
+export VSCODE_EXTENSIONS="${XDG_DATA_HOME:-~/.local/share}/code-oss/extensions"
+
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
+export ADB_VENDOR_KEY="$XDG_CONFIG_HOME"/android
+
+# This lets me have a colorful man page :)
+export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
+export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
+export LESS_TERMCAP_me=$(printf '\e[0m')     # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$(printf '\e[0m')     # leave standout mode
+export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode - yellow
+export LESS_TERMCAP_ue=$(printf '\e[0m')     # leave underline mode
+export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
+
