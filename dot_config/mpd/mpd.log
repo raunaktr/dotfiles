@@ -1,4 +1,0 @@
-Jul 11 22:50 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
-Jul 11 22:50 : config: option 'device' on line 18 was not recognized
-Jul 11 22:50 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
-Jul 11 22:50 : client: [0] opened from 127.0.0.1:42684
