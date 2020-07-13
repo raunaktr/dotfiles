@@ -21,7 +21,6 @@ alias aliases="vim ~/.config/aliases && source ~/.config/aliases"
 alias i3config="vim ~/.config/i3/config"
 alias tmux="TERM=kitty tmux -f '$XDG_CONFIG_HOME'/tmux/tmux.conf"
 alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
-alias gpg2="gpg2 --homedir $XDG_DATA_HOME/gnupg"
 
 
 # Some more ls aliases

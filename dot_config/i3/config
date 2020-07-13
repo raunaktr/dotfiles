@@ -235,7 +235,7 @@ for_window [title="Document Scanner"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Yad" title="yad-calender"] floating enable
 for_window [title="Customize Look and Feel"] floating enable
-
+for_window [title="QtPass"] floating enable
 
 ##############################################################################
 ##                    Auto start applications 				    ##
