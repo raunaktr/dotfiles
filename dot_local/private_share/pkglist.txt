@@ -111,7 +111,7 @@ linux-firmware
 lolcat
 lshw
 lsof
-lxappearance
+lxappearance-gtk3
 m4
 maim
 make
@@ -221,7 +221,6 @@ ttf-roboto
 ttf-ubuntu-font-family
 ttf-unifont
 ueberzug
-ufetch-git
 ufw
 unrar
 unzip
@@ -231,7 +230,6 @@ vim
 virtualbox
 virtualbox-host-modules-arch
 vlc
-vtop
 wget
 which
 wireless_tools
