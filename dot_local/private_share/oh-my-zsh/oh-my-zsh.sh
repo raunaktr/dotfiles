@@ -53,7 +53,7 @@ fi
 
 # Save the location of the current completion dump file.
 if [ -z "$ZSH_COMPDUMP" ]; then
-  ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+  ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 fi
 
 # Construct zcompdump OMZ metadata
