@@ -19,3 +19,6 @@ a15f0f0e9ff17c1ca5c6d694d732e72c7c03a62b 1c58a746af7a67f311ee47f97285a855eaf18b5
 c99f3c50fa46a93be28be88632889404fff3b958 c99f3c50fa46a93be28be88632889404fff3b958 Raunak <reachtoraunak@gmail.com> 1594827467 +0530	pull --rebase --stat origin master: updating HEAD
 c99f3c50fa46a93be28be88632889404fff3b958 c99f3c50fa46a93be28be88632889404fff3b958 Raunak <reachtoraunak@gmail.com> 1594827849 +0530	reset: moving to HEAD
 c99f3c50fa46a93be28be88632889404fff3b958 95fc09014a4ad996b216977ce3af6fb4309606f2 Raunak <reachtoraunak@gmail.com> 1594827852 +0530	revert: Revert "git: go back to previous main branch detection logic"
+95fc09014a4ad996b216977ce3af6fb4309606f2 a3740c34148a7a44d82683d2aa31c98f32b21a96 Raunak <reachtoraunak@gmail.com> 1595091692 +0530	pull --rebase --stat origin master (start): checkout a3740c34148a7a44d82683d2aa31c98f32b21a96
+a3740c34148a7a44d82683d2aa31c98f32b21a96 682412fadc765b51466ce9138abdbdf75ac3ddf6 Raunak <reachtoraunak@gmail.com> 1595091692 +0530	pull --rebase --stat origin master (pick): Revert "git: go back to previous main branch detection logic"
+682412fadc765b51466ce9138abdbdf75ac3ddf6 682412fadc765b51466ce9138abdbdf75ac3ddf6 Raunak <reachtoraunak@gmail.com> 1595091692 +0530	pull --rebase --stat origin master (finish): returning to refs/heads/master
