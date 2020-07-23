@@ -215,10 +215,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && dunstify -
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && dunstify -r 5555 -u low "Brightness Down $(xbacklight -get | cut -d '.' -f 1)"
 
 # Media player controls
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle
-bindsym XF86AudioNext exec --no-startup-id mpc next
-bindsym XF86AudioPrev exec --no-startup-id mpc prev
-bindsym XF86AudioStop exec --no-startup-id mpc stop
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle && ~/.config/ncmpcpp/music-notify.sh
+bindsym XF86AudioNext exec --no-startup-id mpc next && ~/.config/ncmpcpp/music-notify.sh
+bindsym XF86AudioPrev exec --no-startup-id mpc prev && ~/.config/ncmpcpp/music-notify.sh
+bindsym XF86AudioStop exec --no-startup-id mpc stop && ~/.config/ncmpcpp/music-notify.sh
 
 
 ##############################################################################
@@ -270,7 +270,7 @@ exec_always --no-startup-id compton --dbus
 exec_always --no-startup-id xfce4-power-manager
 
 # start mpDris2 for using MPRIS with mpd
-exec_always --no-startup-id mpDris2
+#exec_always --no-startup-id mpDris2
 
 # start MPD
 exec_always --no-startup-id mpd
