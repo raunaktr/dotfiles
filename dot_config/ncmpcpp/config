@@ -9,7 +9,7 @@ mpd_port = "6600"
 mpd_connection_timeout = "5"  
 mpd_crossfade_time = "3"  
 
-#execute_on_song_change = ~/.config/ncmpcpp/art-dark.sh && dunstify "Now Playing " "$(mpc current)"
+execute_on_song_change = ~/.config/ncmpcpp/music-notify.sh
 
 # Playlist
 playlist_disable_highlight_delay = "0"  
