@@ -284,4 +284,5 @@ exec_always --no-startup-id mpd
 gaps inner 15
 gaps outer -7
 
-
+# Activate smart borders (always)
+smart_borders on
