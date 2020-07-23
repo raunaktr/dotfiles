@@ -521,7 +521,6 @@ def_key "G"
 #
 def_key "q"
   quit
-  run_external_command "clearArt"
 #
 #def_command "scroll_down" [immediate]
 #   run_external_command "~/bin/cover"
