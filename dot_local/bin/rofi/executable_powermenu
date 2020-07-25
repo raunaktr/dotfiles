@@ -1,0 +1,33 @@
+#!/bin/sh
+
+rofi_command="rofi -theme ~/.config/rofi/powermenu.rasi"
+
+### Options ###
+power_off="\tShutdown"
+reboot="\tRestart"
+lock="\tLock"
+suspend="\tHibernate"
+log_out="\tExit"
+
+# Variable passed to rofi
+options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
+
+chosen="$(echo -e "${options}" | $rofi_command -dmenu -selected-row 2)"
+case $chosen in 
+    "	Shutdown")
+	    shutdown -P now
+        ;;
+    "	Restart")
+	    systemctl reboot
+        ;;
+    "	Lock") 
+	    betterlockscreen -l
+        ;;
+    "	Hibernate")
+	    systemctl suspend
+	    dm-tool switch-to-greeter
+        ;;
+    "	Exit")
+	    i3-msg exit
+        ;;
+esac
