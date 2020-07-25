@@ -105,7 +105,7 @@ padding-left = 2
 padding-right = 2
 module-margin = 1.5
 
-modules-left = redshift volume xwindow
+modules-left = volume xwindow
 modules-center = i3 
 modules-right = rofi-usb-mount wlan battery now
 
@@ -246,8 +246,8 @@ bar-progress-empty-foreground = #44
 type = internal/date
 interval = 5.0
 ;trail = true
-exec = $HOME/.config/polybar/scripts/calendar.sh --popup
-click-left = $HOME/.config/polybar/scripts/calendar.sh --popup &
+;exec = $HOME/.local/bin/polybar/calendar.sh --popup
+;click-left = $HOME/.local/bin/polybar/calendar.sh --popup &
 
 label = %date%  %time%
 date = %A, %h %d
@@ -346,7 +346,7 @@ interval = 5
 click-left = networkmanager_dmenu &
 
 format-connected = <ramp-signal> <label-connected> 
-label-connected = "%{A1:networkmanager_dmenu & $HOME/.config/polybar/scripts/wifi_widget.sh:}%essid%%{A}"
+label-connected = "%{A1:networkmanager_dmenu & $HOME/.local/bin/polybar/wifi_widget.sh:}%essid%%{A}"
 
 label-disconnected = "%{A1:networkmanager_dmenu &:}!%{A}"
 format-disconnected-foreground = ${colors.red}
@@ -440,10 +440,10 @@ click-left = rofi-bluetooth &
 [module/redshift]
 type = custom/script
 format-prefix =    
-exec = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh temperature 
-click-left = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh toggle 
-scroll-up = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh increase
-scroll-down = source ~/.config/polybar/scripts/env.sh && ~/.config/polybar/scripts/redshift.sh decrease
+exec = source ~/.local/bin/polybar/env.sh && ~/.local/bin/polybar/redshift.sh temperature 
+click-left = source ~/.local/bin/polybar/env.sh && ~/.local/bin/polybar/redshift.sh toggle 
+scroll-up = source ~/.local/bin/polybar/env.sh && ~/.local/bin/polybar/redshift.sh increase
+scroll-down = source ~/.local/bin/polybar/env.sh && ~/.local/bin/polybar/redshift.sh decrease
 interval=0.5
 
 
@@ -451,11 +451,11 @@ interval=0.5
 [module/rofi-usb-mount]
 type = custom/script
 format-prefix=""
-exec = ~/.config/polybar/scripts/rofi-usb-mount.sh --check
+exec = ~/.local/bin/polybar/rofi-usb-mount.sh --check
 tail = true
-click-left = ~/.config/polybar/scripts/rofi-usb-mount.sh --mount
-click-right = ~/.config/polybar/scripts/rofi-usb-mount.sh --umount
-click-middle = ~/.config/polybar/scripts/rofi-usb-mount.sh --umount-all
+click-left = ~/.local/bin/polybar/rofi-usb-mount.sh --mount
+click-right = ~/.local/bin/polybar/rofi-usb-mount.sh --umount
+click-middle = ~/.local/bin/polybar/rofi-usb-mount.sh --umount-all
 
 
 
@@ -475,7 +475,7 @@ content-foreground = ${colors.fg-alt}
 
 [module/updates-arch]
 type = custom/script
-exec = ~/.config/polybar/scripts/updates-arch.sh
+exec = ~/.local/bin/polybar/updates-arch.sh
 interval = 1800
 
 

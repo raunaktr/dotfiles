@@ -159,15 +159,15 @@ bindsym $mod+r mode "resize"
 ##		 Set shutdown sequence, restart, locking features         ##
 ############################################################################
 
-bindsym $mod+Ctrl+Delete exec --no-startup-id ~/_my-scripts/bin/rofi/powermenu
+bindsym $mod+Ctrl+Delete exec --no-startup-id ~/.local/bin/rofi/powermenu
 
 
 ############################################################################
 ##			Xrandr: connected display			  ##
 ############################################################################
 
-bindsym $mod+F4 exec --no-startup-id ~/_my-scripts/bin/rofi/monitorlayoutmenu
-bindsym $mod+Ctrl+F4 exec --no-startup-id ~/_my-scripts/bin/rofi/resolutionmenu
+bindsym $mod+F4 exec --no-startup-id ~/.local/bin/rofi/monitorlayoutmenu
+bindsym $mod+Ctrl+F4 exec --no-startup-id ~/.local/bin/rofi/resolutionmenu
 
 #############################################################################
 ## 			App launch key bindings				   ##
@@ -177,17 +177,17 @@ bindsym $mod+Ctrl+F4 exec --no-startup-id ~/_my-scripts/bin/rofi/resolutionmenu
 bindsym $mod+Return exec kitty
 
 #Bind start program launcher (rofi)
-bindsym $mod+d exec --no-startup-id ~/_my-scripts/bin/rofi/appmenu
+bindsym $mod+d exec --no-startup-id ~/.local/bin/rofi/appmenu
 
 # Bind view windows menu
-bindsym $mod+Tab exec --no-startup-id ~/_my-scripts/bin/rofi/windowmenu
+bindsym $mod+Tab exec --no-startup-id ~/.local/bin/rofi/windowmenu
 
 # key bindings postman
 bindsym $mod+p exec --no-startup-id postman
 
 # Take a Screenshot with scrot
-bindsym Print exec --no-startup-id $HOME/_my-scripts/scrot_script.sh
-bindsym $mod+Print exec --no-startup-id $HOME/_my-scripts/scrot_capture_current_window.sh
+bindsym Print exec --no-startup-id $HOME/.local/bin/scrot_script.sh
+bindsym $mod+Print exec --no-startup-id $HOME/.local/bin/scrot_capture_current_window.sh
 
 # Bind xfce4-appfinder
 bindsym $mod+F1 exec --no-startup-id xfce4-appfinder
@@ -215,10 +215,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && dunstify -
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && dunstify -r 5555 -u low "Brightness Down $(xbacklight -get | cut -d '.' -f 1)"
 
 # Media player controls
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle && ~/.config/ncmpcpp/music-notify.sh
-bindsym XF86AudioNext exec --no-startup-id mpc next && ~/.config/ncmpcpp/music-notify.sh
-bindsym XF86AudioPrev exec --no-startup-id mpc prev && ~/.config/ncmpcpp/music-notify.sh
-bindsym XF86AudioStop exec --no-startup-id mpc stop && ~/.config/ncmpcpp/music-notify.sh
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle && ~/.local/bin/music-notify.sh
+bindsym XF86AudioNext exec --no-startup-id mpc next && ~/.local/bin/music-notify.sh
+bindsym XF86AudioPrev exec --no-startup-id mpc prev && ~/.local/bin/music-notify.sh
+bindsym XF86AudioStop exec --no-startup-id mpc stop && ~/.local/bin/music-notify.sh
 
 
 ##############################################################################
