@@ -1,4 +1,0 @@
-#!/usr/bin/sh
-rofi -show window \
-     -show-icons \
-     -theme ~/.config/rofi/windowmenu.rasi
