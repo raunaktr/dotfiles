@@ -9,3 +9,5 @@ a15f0f0e9ff17c1ca5c6d694d732e72c7c03a62b 1c58a746af7a67f311ee47f97285a855eaf18b5
 c99f3c50fa46a93be28be88632889404fff3b958 95fc09014a4ad996b216977ce3af6fb4309606f2 Raunak <reachtoraunak@gmail.com> 1594827852 +0530	revert: Revert "git: go back to previous main branch detection logic"
 95fc09014a4ad996b216977ce3af6fb4309606f2 682412fadc765b51466ce9138abdbdf75ac3ddf6 Raunak <reachtoraunak@gmail.com> 1595091692 +0530	pull --rebase --stat origin master (finish): refs/heads/master onto a3740c34148a7a44d82683d2aa31c98f32b21a96
 682412fadc765b51466ce9138abdbdf75ac3ddf6 9305f605248e3afec32bf00479bbeb0c5962de7f Raunak <reachtoraunak@gmail.com> 1595671551 +0530	pull --rebase --stat origin master (finish): refs/heads/master onto 95218372402afc9aeafc89c0984310387ce79599
+9305f605248e3afec32bf00479bbeb0c5962de7f 10111e1f095008b84848373c96f5a6537b6fff67 Raunak <reachtoraunak@gmail.com> 1595675570 +0530	revert: Revert "lib: support mlterm-256color"
+10111e1f095008b84848373c96f5a6537b6fff67 95218372402afc9aeafc89c0984310387ce79599 Raunak <reachtoraunak@gmail.com> 1595675732 +0530	reset: moving to origin/master

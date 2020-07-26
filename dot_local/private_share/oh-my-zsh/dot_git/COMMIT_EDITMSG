@@ -1,14 +1,14 @@
-Revert "git: go back to previous main branch detection logic"
+Revert "lib: support mlterm-256color"
 
-This reverts commit c99f3c50fa46a93be28be88632889404fff3b958.
+This reverts commit 95218372402afc9aeafc89c0984310387ce79599.
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
 # On branch master
-# Your branch is up to date with 'origin/master'.
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
 #
 # Changes to be committed:
-#	modified:   plugins/git/README.md
-#	modified:   plugins/git/git.plugin.zsh
+#	modified:   lib/termsupport.zsh
 #
