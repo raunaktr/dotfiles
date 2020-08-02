@@ -1,0 +1,4 @@
+{
+  "multiselect-list:select-all": "mod+a",
+  "multiselect-list:deselect-all": "esc"
+}
