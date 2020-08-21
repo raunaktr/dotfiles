@@ -1,6 +1,6 @@
 /* -*- mode: css; -*- */
 configuration {
-  icon-theme:       "Paper";
+  icon-theme:       "Tela";
   cycle:            true;
   disable-history:  false;
   monitor:          "-4";
@@ -13,7 +13,7 @@ configuration {
 }
 
 * {
-  accent:   #bd93f9;
+  accent:   #f97e72;
   bg:       #1E2029FA;
   bg-light: #1c1c1c;
   bg-focus: #282a36;
