@@ -236,13 +236,14 @@ for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Yad" title="yad-calender"] floating enable
 for_window [title="Customize Look and Feel"] floating enable
 for_window [title="QtPass"] floating enable
+for_window [title="NVIDIA X Server Settings"] floating enable
 
 ##############################################################################
 ##                    Auto start applications 				    ##
 ##############################################################################
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/theme.png
+exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/wall.png
 
 # Pulseaudio
 bindsym $mod+m exec --no-startup-id pavucontrol
@@ -275,6 +276,7 @@ exec_always --no-startup-id xfce4-power-manager
 # start MPD
 exec_always --no-startup-id mpd
 
+exec_always --no-startup-id clight --ambient-gamma
 
 ##############################################################################
 ## 				i3 gaps 			   	    ##
