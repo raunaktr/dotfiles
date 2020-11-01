@@ -13,18 +13,18 @@ configuration {
 }
 
 * {
-  accent:   #f97e72;
+  accent:   #285bff;
   bg:       #1E2029FA;
   bg-light: #1c1c1c;
   bg-focus: #282a36;
   bg-dark:  #181a23;
   fg:       #bbc2cf;
   fg-list:  #bbc2cf;
-  on:       #8BD49C;
-  off:      #cc6666;
+  on:       #37bd58;
+  off:      #fc4a6d;
 
-  magenta: #bd93f9;
-  blue:    #61bfff;
+  magenta: #fc58f6;
+  blue:    #285bff;
 
   text-font:      "Fira Code 12";
   text-mono-font: "Fira Code 11";
