@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 rofi -show window \
      -show-icons \
-     -theme ~/.config/rofi/windowmenu.rasi
+     -theme ~/.config/rofi/launchers/misc/appdrawer_cobalt2.rasi

@@ -24,8 +24,8 @@ case $chosen in
 	    betterlockscreen -l
         ;;
     "	Hibernate")
-	    systemctl suspend
-	    dm-tool switch-to-greeter
+	    systemctl hibernate
+	    dm-tool switch-to-greeter	    
         ;;
     "	Exit")
 	    i3-msg exit
