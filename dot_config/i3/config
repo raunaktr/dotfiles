@@ -1,5 +1,5 @@
 #
-#  ██╗██████╗      ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗     ███████╗██╗██╗     ███████╗    
+#  ██╗██████╗      ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗     ███████╗██╗██╗    $# ███████╗    
 #  ██║╚════██╗    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝     ██╔════╝██║██║     ██╔════╝    
 #  ██║ █████╔╝    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗    █████╗  ██║██║     █████╗      
 #  ██║ ╚═══██╗    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║    ██╔══╝  ██║██║     ██╔══╝      
@@ -113,6 +113,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 # Assign Workspaces
 assign [class="Postman"] $ws8
 assign [title="YouTube Music"] $ws9
+assign [class="Signal"] $ws9
 
 
 ###########################################################################
@@ -159,15 +160,15 @@ bindsym $mod+r mode "resize"
 ##		 Set shutdown sequence, restart, locking features         ##
 ############################################################################
 
-bindsym $mod+Ctrl+Delete exec --no-startup-id ~/.local/bin/rofi/powermenu
+bindsym $mod+Ctrl+Delete exec --no-startup-id ~/.config/rofi/applets/menu/powermenu.sh
 
 
 ############################################################################
 ##			Xrandr: connected display			  ##
 ############################################################################
 
-bindsym $mod+F4 exec --no-startup-id ~/.local/bin/rofi/monitorlayoutmenu
-bindsym $mod+Ctrl+F4 exec --no-startup-id ~/.local/bin/rofi/resolutionmenu
+bindsym $mod+Ctrl+F4 exec --no-startup-id ~/.local/bin/rofi/monitorlayoutmenu
+bindsym $mod+F4 exec --no-startup-id ~/.local/bin/rofi/resolutionmenu
 
 #############################################################################
 ## 			App launch key bindings				   ##
@@ -177,7 +178,7 @@ bindsym $mod+Ctrl+F4 exec --no-startup-id ~/.local/bin/rofi/resolutionmenu
 bindsym $mod+Return exec kitty
 
 #Bind start program launcher (rofi)
-bindsym $mod+d exec --no-startup-id ~/.local/bin/rofi/appmenu
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/misc/launcher.sh 
 
 # Bind view windows menu
 bindsym $mod+Tab exec --no-startup-id ~/.local/bin/rofi/windowmenu
@@ -187,17 +188,29 @@ bindsym $mod+p exec --no-startup-id postman
 
 # Take a Screenshot with scrot
 bindsym Print exec --no-startup-id $HOME/.local/bin/scrot_script.sh
-bindsym $mod+Print exec --no-startup-id $HOME/.local/bin/scrot_capture_current_window.sh
+bindsym $mod+Print exec --no-startup-id ~/.config/rofi/applets/applets/screenshot.sh
 
-# Bind xfce4-appfinder
-bindsym $mod+F1 exec --no-startup-id xfce4-appfinder
+# Bind run time applet
+bindsym $mod+F1 exec --no-startup-id ~/.config/rofi/applets/menu/time.sh 
+
+# Bind run apps applet
+bindsym $mod+F2 exec --no-startup-id ~/.config/rofi/applets/applets/apps.sh 
 
 # Bind Networkmanager_dmenu
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+bindsym $mod+F12 exec --no-startup-id ~/.config/rofi/applets/applets/network.sh
 
 # Bind Bluetooth
 bindsym $mod+b exec --no-startup-id rofi-bluetooth
 
+# Bind Rofi edit dotfiles 
+bindsym $mod+grave exec --no-startup-id ~/.local/bin/rofi_edit
+
+# Bind Rofi Emoji
+bindsym $mod+z exec --no-startup-id ~/.local/bin/rofi-emoji.sh
+
+# Bind Rofi Quicklinks
+bindsym $mod+q exec --no-startup-id ~/.config/rofi/applets/applets/quicklinks.sh
 
 
 ###############################################################################################
@@ -205,14 +218,18 @@ bindsym $mod+b exec --no-startup-id rofi-bluetooth
 ###############################################################################################
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && dunstify -r 2593 -u low "Volume Up $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1)"
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && dunstify -r 2593 -u low "Volume Down $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1)"
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && dunstify -r 2593 -u low "Volume Muted"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && dunstify -r 2593 -u low "Volume Up $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1) "
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && dunstify -r 2593 -u low "Volume Down $(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1) "
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && dunstify -r 2593 -u low "Volume Muted "
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && dunstify -u low "Volume Mic Muted"
+
+bindsym $mod+F6 exec --no-startup-id ~/.config/rofi/applets/applets/volume.sh
 
 # Screen Brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && dunstify -r 5555 -u low "Brightness Up $(xbacklight -get | cut -d '.' -f 1)"
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && dunstify -r 5555 -u low "Brightness Down $(xbacklight -get | cut -d '.' -f 1)"
+
+bindsym $mod+F5 exec --no-startup-id ~/.config/rofi/applets/applets/volume.sh
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle && ~/.local/bin/music-notify.sh
@@ -220,6 +237,9 @@ bindsym XF86AudioNext exec --no-startup-id mpc next && ~/.local/bin/music-notify
 bindsym XF86AudioPrev exec --no-startup-id mpc prev && ~/.local/bin/music-notify.sh
 bindsym XF86AudioStop exec --no-startup-id mpc stop && ~/.local/bin/music-notify.sh
 
+bindsym $mod+F9 exec --no-startup-id ~/.config/rofi/applets/applets/mpd.sh
+bindsym $mod+F10 exec --no-startup-id ~/.config/rofi/applets/applets/mpd.sh
+bindsym $mod+F11 exec --no-startup-id ~/.config/rofi/applets/applets/mpd.sh
 
 ##############################################################################
 ##		 Open specific applications in floating mode 		    ##
@@ -243,7 +263,7 @@ for_window [title="NVIDIA X Server Settings"] floating enable
 ##############################################################################
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/wall.png
+exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/madness-wallpaper.png
 
 # Pulseaudio
 bindsym $mod+m exec --no-startup-id pavucontrol
@@ -258,25 +278,18 @@ bindsym --no-startup-id dunst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
 # Enable polybar Script
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Lock the screen
-# exec_always --no-startup-id xautolock -time 5 -locker 'dm-tool switch-to-greeter'
-exec --no-startup-id xautolock -t 5 -l 'betterlockscreen -l dim'
+exec_always --no-startup-id $HOME/.config/polybar/panels/launch.sh
 
 # Enabling compton-tryone-git
 exec_always --no-startup-id compton --dbus
-
-# Enabling power manager
-exec_always --no-startup-id xfce4-power-manager
 
 # start mpDris2 for using MPRIS with mpd
 #exec_always --no-startup-id mpDris2
 
 # start MPD
-exec_always --no-startup-id mpd
+# exec_always --no-startup-id mpd
 
-exec_always --no-startup-id clight --ambient-gamma
+# exec_always --no-startup-id clight --ambient-gamma
 
 ##############################################################################
 ## 				i3 gaps 			   	    ##
@@ -288,3 +301,4 @@ gaps outer -7
 
 # Activate smart borders (always)
 smart_borders on
+smart_gaps on
