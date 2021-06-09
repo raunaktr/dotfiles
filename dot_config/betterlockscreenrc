@@ -1,7 +1,7 @@
 # configuration file for betterlockscreen
 
-insidecolor=00000000
-ringcolor=ffffffff
+insidecolor=19354900
+ringcolor=ffc600ff
 keyhlcolor=d23c3dff
 bshlcolor=d23c3dff
 separatorcolor=00000000
