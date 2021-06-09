@@ -1,4 +1,4 @@
-# Raunak's dotfiles
+# Raunak's old dotfiles
 
 [Chezmoi](https://www.chezmoi.io/) manages your dotfiles across multiple machines, securely and is available on windows, macOS and almost all unix like distributions via your package manager.
 
