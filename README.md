@@ -7,6 +7,9 @@
 
 or clone it [from source](https://github.com/twpayne/chezmoi.git) and [build it](https://www.chezmoi.io/docs/install/) yourself.
 
+These dots are inspired by [Cobal2](https://github.com/wesbos/cobalt2) by [Wesbos](https://github.com/wesbos) and special thanks goes to [Aditya Shakya](https://github.com/adi1090x) for his enthusiasm for ricing Unix-based system.
+
+
 **Note:** This repository is tuned to Arch. Yes, _i use **Arch**, btw!_
 
 ## Table of contents
@@ -46,13 +49,15 @@ If you are installing this on a new machine, make sure, to configure (via: `user
 | lightdm              | Display Manager        | [lightdm-gtk-greeter](https://wiki.archlinux.org/index.php/LightDM)                                                    |
 | mpd                  | Music Player Daemon    | With ncmpcpp, mpc                                                                                                      |
 | mpv, VLC             | Video Players          | `sudo pacman -S vlc`                                                                                                   |
-| compton-tryone       | Compositor             | [compton](https://github.com/tryone144/compton) with kawase base                                                       |
+| picom-ibhagwan-git       | Compositor             | [compton](https://github.com/ibhagwan/picom) with dual-kawase base                                                       |
 | scrot                | Screen Capture         | `sudo pacman -S scrot`                                                                                                 |
 | ranger               | CLI based File Manager | [ranger](http://ranger.github.io/) is a console based file manager written in python                                   |
-| vim                  | Editor                 | I use vim 8 awesome [vimrc](https://github.com/amix/vimrc)                                                             |
+| vim                  | Editor                 | I've attached my own vimrc config                                                             |
 | kitty                | Terminal               | [kitty](https://sw.kovidgoyal.net/kitty/) is designed for power keyboard users                                         |
 | Yay                  | AUR helper             | [yay](https://github.com/Jguer/yay), an AUR helper giving access to aur.                                               |
 | zsh                  | Shell                  | Plugins: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and [powerlevel10k](https://github.com/romkatv/powerlevel10k) |
+| dunst               | notification daemon                  | It's a light weight & ricing friendly notification daemon [dunst](https://github.com/dunst-project/dunst)  |
+
 
 ## Installation
 
