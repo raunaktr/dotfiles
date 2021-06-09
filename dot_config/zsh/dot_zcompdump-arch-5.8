@@ -1,4 +1,4 @@
-#files: 923	version: 5.8
+#files: 1187	version: 5.8
 
 _comps=(
 '-' '_precommand'
@@ -235,6 +235,7 @@ _comps=(
 'curl' '_curl'
 'cut' '_cut'
 'cvs' '_cvs'
+'d' '_dirs'
 'dad' '_dad'
 'darcs' '_darcs'
 'dash' '_sh'
@@ -434,7 +435,9 @@ _comps=(
 'gdd' '_dd'
 'gdf' '_df'
 'gdiff' '_diff'
+'gdnolock' '_git'
 'gdu' '_du'
+'gdv' '_git'
 'geany' '_geany'
 'gegrep' '_grep'
 'gem' '_gem'
@@ -457,7 +460,13 @@ _comps=(
 'gfmt' '_fmt'
 'gfold' '_fold'
 'ggetopt' '_getopt'
+'ggf' '_git'
+'ggfl' '_git'
+'ggl' '_git'
+'ggp' '_git'
+'ggpnp' '_git'
 'ggrep' '_grep'
+'ggu' '_git'
 'ggv' '_gnome-gv'
 'ghc' '_ghc'
 'ghci' '_ghc'
@@ -473,6 +482,7 @@ _comps=(
 'git-flow' '_git-flow'
 'git-journal' '_git-journal'
 'gitk' '_git'
+'_git_log_prettily' '_git'
 'git-pulls' '_git-pulls'
 'git-receive-pack' '_git'
 'git-revise' '_git-revise'
@@ -935,6 +945,7 @@ _comps=(
 'ogginfo' '_vorbis'
 'oksh' '_sh'
 'okular' '_okular'
+'omz' '_omz'
 'openssl' '_openssl'
 'openstack' '_openstack'
 'opera' '_webbrowser'
@@ -1664,6 +1675,15 @@ _services=(
 'bzcat' 'bunzip2'
 'gchgrp' 'chgrp'
 'gchown' 'chown'
+'gdnolock' 'git-diff'
+'gdv' 'git-diff'
+'ggf' 'git-checkout'
+'ggfl' 'git-checkout'
+'ggl' 'git-checkout'
+'ggp' 'git-checkout'
+'ggpnp' 'git-checkout'
+'ggu' 'git-checkout'
+'_git_log_prettily' 'git-log'
 'gnupod_addsong.pl' 'gnupod_addsong'
 'gnupod_check.pl' 'gnupod_check'
 'gnupod_INIT.pl' 'gnupod_INIT'
@@ -1960,11 +1980,64 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _widgets _zargs _zattr _zcalc _zcalc_line \
             _zcompile _zed _zftp _zle _zmodload \
             _zmv _zparseopts _zpty _zsh-mime-handler _zsocket \
-            _zstyle _ztodo
+            _zstyle _ztodo _afew _android _archlinux-java \
+            _artisan _atach _bitcoin-cli _bower _bundle \
+            _caffeinate _cap _cask _ccache _cf \
+            _cheat _choc _chromium _cmake _coffee \
+            _composer _conan _concourse _console _dad \
+            _debuild _dget _dhcpcd _diana _docpad \
+            _drush _ecdsautil _emulator _envdir _exportfs \
+            _fab _ffind _fleetctl _flutter _force \
+            _fwupdmgr _gas _ghc _gist _git-flow \
+            _git-journal _git-pulls _git-wtf _glances _golang \
+            _google _gtk-launch _hledger _homestead _httpie \
+            _ibus _include-what-you-use _inxi _jmeter _jmeter-plugins \
+            _jonas _jrnl _kak _kitchen _knife \
+            _language_codes _lunchy _middleman _mina _mix \
+            _mussh _mvn _nano _nftables _node \
+            _nvm _openssl _optirun _patool _perf \
+            _periscope _pgsql_utils _phing _pixz _pkcon \
+            _play _pm2 _port _pygmentize _rails \
+            _ralio _redis-cli _rfkill _rkt _rslsync \
+            _rspec _rsvm _rubocop _sbt _scala \
+            _scrub _sdd _setcap _setup.py _sfdx \
+            _showoff _srm _stack _subl _subliminal \
+            _supervisorctl _svm _tarsnap _teamocil _thor \
+            _tmuxinator _tmuxp _tox _trash-empty _trash-list \
+            _trash-put _trash-restore _udisksctl _ufw _vagrant \
+            _virtualbox _vnstat _wemux _wg-quick _xinput \
+            _xsel _yaourt _yarn _zcash-cli _afew \
+            _android _archlinux-java _artisan _atach _bitcoin-cli \
+            _bower _bundle _caffeinate _cap _cask \
+            _ccache _cf _cheat _choc _chromium \
+            _cmake _coffee _composer _conan _concourse \
+            _console _dad _debuild _dget _dhcpcd \
+            _diana _docpad _drush _ecdsautil _emulator \
+            _envdir _exportfs _fab _ffind _fleetctl \
+            _flutter _force _fwupdmgr _gas _ghc \
+            _gist _git-flow _git-journal _git-pulls _git-wtf \
+            _glances _golang _google _gtk-launch _hledger \
+            _homestead _httpie _ibus _include-what-you-use _inxi \
+            _jmeter _jmeter-plugins _jonas _jrnl _kak \
+            _kitchen _knife _language_codes _lunchy _middleman \
+            _mina _mix _mussh _mvn _nano \
+            _nftables _node _nvm _openssl _optirun \
+            _patool _perf _periscope _pgsql_utils _phing \
+            _pixz _pkcon _play _pm2 _port \
+            _pygmentize _rails _ralio _redis-cli _rfkill \
+            _rkt _rslsync _rspec _rsvm _rubocop \
+            _sbt _scala _scrub _sdd _setcap \
+            _setup.py _sfdx _showoff _srm _stack \
+            _subl _subliminal _supervisorctl _svm _tarsnap \
+            _teamocil _thor _tmuxinator _tmuxp _tox \
+            _trash-empty _trash-list _trash-put _trash-restore _udisksctl \
+            _ufw _vagrant _virtualbox _vnstat _wemux \
+            _wg-quick _xinput _xsel _yaourt _yarn \
+            _zcash-cli
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
 
-#omz revision: 079e7bb5e0a79171f3356d55d3f6302a82645a39
-#omz fpath: /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-autosuggestions /home/raunak/.local/share/oh-my-zsh/plugins/git /home/raunak/.local/share/oh-my-zsh/functions /home/raunak/.local/share/oh-my-zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/Math /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle
+#omz revision: 03b6a72576cb0f0b53abde25d409e8026d5c4ee9
+#omz fpath: /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-autosuggestions /home/raunak/.local/share/oh-my-zsh/plugins/git /home/raunak/.local/share/oh-my-zsh/functions /home/raunak/.local/share/oh-my-zsh/completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-autosuggestions /home/raunak/.local/share/oh-my-zsh/plugins/git /home/raunak/.local/share/oh-my-zsh/functions /home/raunak/.local/share/oh-my-zsh/completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-syntax-highlighting /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-autosuggestions /home/raunak/.local/share/oh-my-zsh/plugins/git /home/raunak/.local/share/oh-my-zsh/functions /home/raunak/.local/share/oh-my-zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/functions/Calendar /usr/share/zsh/functions/Chpwd /usr/share/zsh/functions/Completion /usr/share/zsh/functions/Completion/Base /usr/share/zsh/functions/Completion/Linux /usr/share/zsh/functions/Completion/Unix /usr/share/zsh/functions/Completion/X /usr/share/zsh/functions/Completion/Zsh /usr/share/zsh/functions/Exceptions /usr/share/zsh/functions/Math /usr/share/zsh/functions/MIME /usr/share/zsh/functions/Misc /usr/share/zsh/functions/Newuser /usr/share/zsh/functions/Prompts /usr/share/zsh/functions/TCP /usr/share/zsh/functions/VCS_Info /usr/share/zsh/functions/VCS_Info/Backends /usr/share/zsh/functions/Zftp /usr/share/zsh/functions/Zle /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions/src /home/raunak/.local/share/oh-my-zsh/custom/plugins/zsh-completions/src
