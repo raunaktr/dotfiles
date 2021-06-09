@@ -21,6 +21,7 @@ alias aliases="vim ~/.config/aliases && source ~/.config/aliases"
 alias i3config="vim ~/.config/i3/config"
 alias tmux="TERM=kitty tmux -f '$XDG_CONFIG_HOME'/tmux/tmux.conf"
 alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
+alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
 
 
 # Some more ls aliases
