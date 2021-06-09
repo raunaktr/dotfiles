@@ -1,0 +1,141 @@
+if empty($MYVIMRC) | let $MYVIMRC = expand('<sfile>:p') | endif
+
+if empty($XDG_CACHE_HOME)  | let $XDG_CACHE_HOME  = $HOME."/.cache"       | endif
+if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = $HOME."/.config"      | endif
+if empty($XDG_DATA_HOME)   | let $XDG_DATA_HOME   = $HOME."/.local/share" | endif
+
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+
+set packpath^=$XDG_DATA_HOME/vim
+set packpath+=$XDG_DATA_HOME/vim/after
+
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p', 0700)
+set viewdir=$XDG_DATA_HOME/vim/view | call mkdir(&viewdir, 'p', 0700)
+
+set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p', 0700)
+set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p', 0700)
+set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p', 0700)
+
+if !has('nvim') " Neovim has its own special location
+  set viminfofile=$XDG_CACHE_HOME/vim/viminfo
+endif
+
+
+" -- Compability -- "
+
+set encoding=utf-8  " always encode in utf
+set nocompatible    " use vim defaults instead of vi
+set noshowmode
+
+if empty(glob('$XDG_DATA_HOME/vim/autoload/plug.vim'))
+    silent !curl -fLo $XDG_DATA_HOME/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('$XDG_DATA_HOME/vim/plugged')
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/vim-easy-align'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'lervag/vimtex'
+Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+"Plug 'ipod825/vim-netranger'
+"Plug 'henrik/vim-open-url'
+"Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'thaerkh/vim-workspace'
+"Plug 'troydm/zoomwintab.vim'
+
+call plug#end()
+
+
+" -- Settings -- "
+
+" File detection
+filetype indent plugin on
+syntax on
+
+" General
+set autoread                  " auto refresh any file not being edited by Vim
+set background=dark           " dark background
+set directory^=$HOME/backups/ " put all swap files together in one place
+set backspace=2               " enable <BS> for everything
+set completeopt-=preview      " dont show preview window
+set fillchars+=vert:\         " empty space instead of broken line for vsplits
+set hidden                    " hide when switching buffers, don't unload
+set laststatus=2              " always show status line
+set mouse=a                   " enable mouse in all modes
+set wrap                      " word wrap
+set linebreak                 " attempt to wrap lines cleanly
+set number                    " show line numbers
+"set cursorline                " highlight cursor line
+set title                     " use filename in window title
+set ttyfast                   " you've got a fast terminal
+set spelllang=en
+
+" Folding
+set foldignore=               " don't ignore anything when folding
+set foldlevelstart=99         " no folds closed on open
+set foldmethod=indent         " collapse code using indentations
+
+" Tabs
+set autoindent                " copy indent from previous line
+set expandtab                 " replace tabs with spaces
+set shiftwidth=4              " spaces for autoindenting
+set smarttab                  " <BS> removes shiftwidth worth of spaces
+set softtabstop=2             " spaces for editing, e.g. <Tab> or <BS>
+set tabstop=2                 " spaces for <Tab>
+
+" Panes
+set splitbelow
+"set splitright
+
+" Searches
+set hlsearch                  " highlight search results
+set incsearch                 " search whilst typing
+set ignorecase                " case insensitive searching
+set smartcase                 " override ignorecase if upper case typed
+set showcmd                   " show command on last line of screen
+set showmatch                 " show bracket matches
+set textwidth=80              " break lines after 80 char width                
+"set colorcolumn=80
+set wildmenu                  " enhanced cmd line completion
+set ruler                     " shows ruler
+set clipboard+=unnamed        " use the clipboards of vim and win
+set go+=a                     " automatically copy to clipboard
+
+
+" Yank (copy) selection to global clipboard
+vmap <C-c> "+yi
+
+" Put (paste) from global clipboard
+imap <C-v> <esc>"+gpi
+
+" Toggle fold
+nnoremap <space> za
+
+" Toggle method used for folding
+nnoremap mm :call ToggleFoldMethod()<CR>
+
+" Fuzzy finder
+nnoremap <leader>f :FZF<CR>
+
+" -- Functions -- "
+
+function! ToggleFoldMethod()
+    if &foldmethod == 'indent'
+        set foldmethod=marker
+        echo "foldmethod=marker"
+    else
+        set foldmethod=indent
+        echo "foldmethod=indent"
+    endif
+endfunction
