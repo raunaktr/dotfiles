@@ -1,103 +1,44 @@
-!! Colors
-#define blk  #4a505d
-#define bblk #61697a
-#define red  #f81141
-#define bred #fc4a6d
-#define grn  #23974a
-#define bgrn #37bd58
-#define ylw  #fd7e57
-#define bylw #f6be48
-#define blu  #285bff
-#define bblu #199ffd
-#define mag  #8c62fd
-#define bmag #fc58f6
-#define cyn  #3a8ab2
-#define bcyn #50acae
-#define wht  #ccd5e5
-#define bwht #ffffff
-#define bg #282c34
-#define fg wht
+! ██╗░░██╗██████╗░███████╗███████╗░██████╗░██╗░░░██╗██████╗░░██████╗███████╗███████╗
+! ╚██╗██╔╝██╔══██╗██╔════╝██╔════╝██╔═══██╗██║░░░██║██╔══██╗██╔════╝██╔════╝██╔════╝
+! ░╚███╔╝░██████╔╝█████╗░░███████╗██║░░░██║██║░░░██║██████╔╝██║░░░░░█████╗░░███████╗
+! ░██╔██╗░██╔══██╗██╔══╝░░╚════██║██║░░░██║██║░░░██║██╔══██╗██║░░░░░██╔══╝░░╚════██║
+! ██╔╝░██╗██║░░██║███████╗███████║╚██████╔╝╚██████╔╝██║░░██║╚██████╗███████╗███████║
+! ╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝░╚═════╝░░╚═════╝░╚═╝░░╚═╝░╚═════╝╚══════╝╚══════╝
+!
+! -----------------------------------
+Xft.dpi: 102
+!Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
-*.foreground:  fg
-*.background:  bg
-*.cursorColor: mag
-
-*.color0:  blk
-*.color8:  bblk
-*.color1:  red
-*.color9:  bred
-*.color2:  grn
-*.color10: bgrn
-*.color3:  ylw
-*.color11: bylw
-*.color4:  blu
-*.color12: bblu
-*.color5:  mag
-*.color13: bmag
-*.color6:  cyn
-*.color14: bcyn
-*.color7:  wht
-*.color15: bwht
-
-! greys
-*.color234: #1E2029
-*.color235: #282a36
-*.color236: #373844
-*.color237: #44475a
-*.color239: #565761
-*.color240: #6272a4
-*.color241: #b6b6b2
-
-!! general
-scratch.font: Fira Code:pixelsize=16
-
-!! urxvt
-URxvt*depth:                   32
-URxvt*.background:             blk
-URxvt*.borderless:             1
-URxvt*.buffered:               true
-URxvt*.cursorBlink:            true
-URxvt*.font:                   xft:Fira Code:pixelsize=12
-URxvt*.internalBorder:         10
-URxvt*.letterSpace:            0
-URxvt*.lineSpace:              5
-URxvt*.loginShell:             false
-URxvt*.matcher.button:         1
-URxvt*.matcher.rend.0:         Uline Bold fg5
-URxvt*.saveLines:              5000
-URxvt*.scrollBar:              false
-URxvt*.underlineColor:         grey
-URxvt.clipboard.autocopy:      true
-URxvt.iso14755:                false
-URxvt.iso14755_52:             false
-URxvt.perl-ext-common:         default,matcher
-
-
-URxvt*imLocale: en_US.UTF-8
-URxvt*intensityStyles: false
-URxvt*termName: rxvt-unicode-256color
-
-! My urxvt fonts
-URxvt.utf8: 2
-URxvt*cursorColor: white
-
-URxvt*mouseWheelScrollPage:       true
-URxvt*reverseVideo: on
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!! ST TERMINAL CONFIGURATION !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-! These are all possible options, presented with default values.
-! xst will fallback to *.option if st.option is not present.
-! see src/config.h for more information about option meanings.
-
-! These options only take effect on startup.
-st.termname:     st-256color
-! if you do not set shell, precedence is: -e arg, utmp option, SHELL env var, /etc/passwd shell
-st.shell:        /bin/zsh
-
-! The following options options can be reloaded via USR1 signal.
-st.font:              Fira Code:pixelsize=16:antialias=true:autohint=true;
-
-
+xcursor.theme:            Vanilla-DMZ
+xscreensaver.fade:   false
+xscreensaver.unfade: false
+! ===== urxvt =====
+URxvt.scrollBar: off
+URxvt.font: xft:monospace:size=12
+URxvt.internalBorder:     22
+! =================
+*background:	#1A2026
+*foreground:	#FFFFFF
+*cursorColor:	#FFFFFF
+*color0:	#242D35
+*color1:	#FB6396
+*color2:	#94CF95
+*color3:	#F692B2
+*color4:	#6EC1D6
+*color5:	#CD84C8
+*color6:	#7FE4D2
+*color7:	#FFFFFF
+*color8:	#526170
+*color9:	#F92D72
+*color10:	#6CCB6E
+*color11:	#F26190
+*color12:	#4CB9D6
+*color13:	#C269BC
+*color14:	#58D6BF
+*color15:	#F4F5F2
