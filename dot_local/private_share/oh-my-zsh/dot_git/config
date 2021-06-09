@@ -17,3 +17,5 @@
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+[oh-my-zsh]
+	lastVersion = 95a06f3927a286db257dc99791b02caba757fe33
