@@ -226,8 +226,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+F6 exec --no-startup-id ~/.config/rofi/applets/applets/volume.sh
 
 # Screen Brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && dunstify -r 5555 -u low "Brightness Up $(xbacklight -get | cut -d '.' -f 1)"
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && dunstify -r 5555 -u low "Brightness Down $(xbacklight -get | cut -d '.' -f 1)"
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 && dunstify -r 5555 -u low "Brightness Up $(light -G | cut -d '.' -f 1)"
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 && dunstify -r 5555 -u low "Brightness Down $(light -G | cut -d '.' -f 1)"
 
 bindsym $mod+F5 exec --no-startup-id ~/.config/rofi/applets/applets/volume.sh
 
@@ -263,7 +263,7 @@ for_window [title="NVIDIA X Server Settings"] floating enable
 ##############################################################################
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/madness-wallpaper.png
+exec_always --no-startup-id feh --bg-fill --no-fehbg ~/.local/share/wallpapers/elephant.jpg
 
 # Pulseaudio
 bindsym $mod+m exec --no-startup-id pavucontrol
